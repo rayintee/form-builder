@@ -1,0 +1,34 @@
+{
+    "msg": "成功",
+    "stauts": "1",
+    "List": [
+        {
+            "ID": "1",
+            "formID": "1",
+            "pageID": "1",
+            "groupID": "1",
+            "elementType": "input[type='text']",
+            "elementLabel": "输入框",
+            "elementCode": "input1",
+            "elementName": "input1"
+        },{
+            "ID": "2",
+            "formID": "1",
+            "pageID": "1",
+            "groupID": "1",
+            "elementType": "input[type='text']",
+            "elementLabel": "输入框",
+            "elementCode": "input2",
+            "elementName": "input2"
+        },{
+            "ID": "3",
+            "formID": "1",
+            "pageID": "1",
+            "groupID": "1",
+            "elementType": "select",
+            "elementLabel": "输入框",
+            "elementCode": "input1",
+            "elementName": "input1"
+        }
+    ]
+}
