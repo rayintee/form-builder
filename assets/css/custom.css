@@ -1,0 +1,294 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+@media (max-width: 979px) {
+    body {
+        padding-top: 0px;
+    }
+}
+
+.bd {
+    border: 1px solid #dddddd;
+}
+
+.h1 {
+    height: auto;
+    min-height: 400px;
+}
+
+.bulider-container {
+    padding: 0;
+    width: 85%;
+    margin: 0 auto 30px;
+    display: flex;
+}
+
+.builder-left:before {
+    background-color: #F5F5F5;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    border-radius: 4px 0 4px 0;
+    color: #9DA0A4;
+    content: "Component";
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: absolute;
+}
+
+.builder-left {
+    float: left;
+    width: 300px;
+}
+
+.left-content, .right-content {
+    margin: 0;
+    padding: 50px 10px 0;
+    height: 100%;
+}
+
+.builder-right:before {
+    background-color: #F5F5F5;
+    border-right: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    border-radius: 4px 0 4px 0;
+    color: #9DA0A4;
+    content: "Container";
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 7px;
+    position: absolute;
+}
+
+.builder-right {
+    margin-left: 15px;
+    width: 100%;
+}
+
+#componentTab {
+    margin-bottom: 5px;
+}
+
+.left-content h5 {
+    font-weight: 100;
+    margin-bottom: 5px;
+}
+
+.left-content hr {
+    margin: 0 0 5px;
+}
+
+.group{
+    margin: 0 0 35px;
+}
+
+#layout {
+    padding: 5px;
+}
+
+.input-append {
+    width: 100%;
+    margin: 10px 0 35px;
+    display: flex;
+}
+
+.inpt {
+    width: 100%;
+    font-size: 12px !important;
+    height: 16px !important;
+}
+
+.input-append .btn{
+    font-size: 12px !important;
+    line-height: 16px !important;
+}
+
+.left-content .module{
+    position: relative;
+    display: flex;
+}
+
+.left-content .field{
+    line-height: 25px;
+    height: 25px;
+    position: relative;
+    display: flex;
+}
+
+.left-content .remove,
+.left-content .configuration {
+    display: none;
+}
+
+.drag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.left-content .preview {
+    display: block;
+    color: #666;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: right;
+}
+
+.left-content .preview input {
+    width: 130px;
+    padding: 0 1px;
+    background: #bbb;
+    font-size: 10px;
+    color: #999;
+    line-height: 20px;
+    height: 20px;
+    position: relative;
+    top: -1px;
+}
+
+.left-content .view{
+    display: none;
+}
+
+#colModel{
+    width: 150px;
+    height: 21px;
+    line-height: 21px;
+    font-size: 10px;
+    padding: 0 5px 0;
+    margin-bottom: 0;
+}
+
+/*######## 右侧 ###########*/
+.right-content .preview{
+    display: none;
+}
+
+.right-content .view {
+    display: block;
+}
+
+.right-content .module{
+    border: 1px dashed #CF453F;
+    margin: 0 0 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    height: auto;
+}
+
+.right-content .drag,
+.right-content .remove {
+    filter: alpha(opacity=20);
+    opacity: 0.2;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.module:hover > .drag,
+.module:hover > .configuration,
+.module:hover > .remove,
+.field:hover .drag,
+.field:hover .configuration,
+.field:hover .remove {
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+
+.right-content .drag,.right-content .remove{
+    position: relative;
+    float: right;
+    top: -2px;
+    z-index: 10;
+}
+
+.right-content{
+    height: auto;
+    min-height: 400px;
+}
+
+.right-content .drag{
+    right: 10px;
+    cursor: pointer;
+}
+
+.right-content .remove {
+    right: -2px;
+}
+
+a.label:hover, a.label:focus,
+a.badge:hover, a.badge:focus {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.module fieldset{
+    margin: 10px 0;
+    width: 100%;
+}
+
+.module fieldset .fieldset-content{
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+}
+
+.right-content .field{
+    margin: 0 0 10px;
+    padding: 5px;
+    height: auto;
+    min-height: 50px;
+    border: 1px dashed #ddd;
+    border-radius: 5px;
+}
+
+.right-content .field-box{
+    margin: 30px 0 0;
+    width: 100%;
+    display: flex;
+    height: auto;
+    min-height: 50px;
+    /*line-height: 50px;*/
+    vertical-align: middle;
+}
+
+.right-content .field-box .box-column{
+    position: relative;
+    float: left;
+    border: 1px dashed #ccc;
+}
+
+.sort-state-highlight{
+    border: 1px dashed #DDDDDD;
+    background: #F0F0F0;
+    height: 60px;
+    margin: 10px 0;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.sort-state-highlight2{
+    border: 1px dashed #DDDDDD;
+    background: #F0F0F0;
+    height: 120px;
+    margin: 10px 0;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.manuColModel{
+    display: block;
+}
+
+.manuColModel input{
+    background: #ffffff !important;
+}
