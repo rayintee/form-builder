@@ -186,7 +186,7 @@ body {
 .input-append {
     width: 100%;
     /*margin: 10px 0 35px;*/
-    margin: 0 0 35px;
+    margin: 0 0 20px;
     display: flex;
 }
 
@@ -320,8 +320,8 @@ body {
     margin: 35px 10px 5px;
     height: auto;
     min-height: 60px;
-    border: 1px dashed #ddd;
-    border-radius: 5px;
+    /*border: 1px dashed #ddd;
+    border-radius: 5px;*/
 }
 
 .right-content .drag,
@@ -483,7 +483,7 @@ input#btnId {
 }
 
 .btn-icon {
-    position: relative;
+    /*position: relative;
     top: -1px;
     margin-right: 2px;
     display: inline-block;
@@ -491,14 +491,19 @@ input#btnId {
     font-style: normal;
     font-weight: bolder;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale;*/
     /*margin-top: 5px;
     margin-bottom: 10px;*/
-    font-size: 24px;
+    font-weight: 100;
+    font-size: 18px;
 }
 
 .btn-icon-plus:before {
-    content: "\2b";
+    content: "+";
+    color: #333;
+}
+.btn-icon-minus:before{
+    content: "-";
     color: #5E9C53;
 }
 
@@ -643,4 +648,43 @@ input#btnId {
 .footer-content .field-box {
     width: auto;
     padding: 0 10px 5px;
+}
+
+.group-r{
+    width: 100%;
+    padding: 0;
+    margin: 2px 0;
+    display: inline-flex;
+}
+
+input#btnCol {
+    width: auto;
+    height: 22px;
+    padding: 2px 0;
+    margin: 0;
+    line-height: 20px;
+}
+
+.btnCol{
+    float: left;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    text-align: center;
+    line-height: 24px;
+}
+
+.col-l{
+    margin-right: 3px;
+}
+.col-r{
+    margin-left: 3px;
+}
+
+.btnCol .btn-icon {
+    top: 1px;
+    left: 2px;
 }
