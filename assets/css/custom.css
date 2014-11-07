@@ -215,7 +215,8 @@ body {
 }
 
 .left-content .remove,
-.left-content .configuration {
+.left-content .configuration,
+.left-content .editor{
     display: none;
 }
 
@@ -280,8 +281,10 @@ body {
     height: auto;
 }
 
+.editor,
 .right-content .drag,
-.right-content .remove {
+.right-content .remove,
+.footer-content .remove{
     filter: alpha(opacity=20);
     opacity: 0.2;
     -webkit-transition: all 500ms ease;
@@ -299,7 +302,8 @@ body {
 .field:hover > .remove,
 .box:hover > .drag,
 .box:hover > .configuration,
-.box:hover > .remove{
+.box:hover > .remove,
+.box-column:hover > .remove{
     filter: alpha(opacity=100);
     opacity: 1;
 }
@@ -370,7 +374,6 @@ a.badge:hover, a.badge:focus {
     display: flex;
     height: auto;
     min-height: 50px;
-    /*line-height: 50px;*/
     vertical-align: middle;
 }
 
@@ -418,17 +421,11 @@ a.badge:hover, a.badge:focus {
     background: #ffffff !important;
 }
 
-.header{
-    /*width: 100%;*/
-    /*border: 1px dashed #cccccc;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px*/;
-    /*height: 100%;*/
+.header-content{
     padding: 25px 10px 5px;
 }
 
-.header .title{
+.header-content .title{
     border-bottom: 1px solid #e5e5e5;
     font-size: 26px;
     text-align: center;
@@ -462,19 +459,9 @@ a.badge:hover, a.badge:focus {
     margin: 10px auto 0;
 }
 select#btnType {
-    /*width: 95%;*/
     height: 25px;
     line-height: 25px;
     font-size: 10px;
-    margin: 0 auto;
-}
-input#btnId {
-    height: 25px !important;
-    padding-top: 0;
-    padding-bottom: 0;
-    line-height: 25px;
-    font-size: 10px !important;
-    /* width: 90% !important; */
     margin: 0 auto;
 }
 
@@ -483,17 +470,6 @@ input#btnId {
 }
 
 .btn-icon {
-    /*position: relative;
-    top: -1px;
-    margin-right: 2px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: bolder;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;*/
-    /*margin-top: 5px;
-    margin-bottom: 10px;*/
     font-weight: 100;
     font-size: 18px;
 }
@@ -538,13 +514,13 @@ input#btnId {
     width: 75%;
 }
 
-.header .field {
+.header-content .field {
     border: 1px dashed #ccc;
     padding: 5px 10px;
     margin: 10px 0 0;
 }
 
-.header .field button {
+.header-content .field button {
     float: right;
     z-index: 10;
     position: relative;
@@ -576,28 +552,32 @@ input#btnId {
     box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
     font-weight: 100;
     float: right;
-    display: none;
+    /*display: none;*/
 }
 
-.editor i.icon-edit {
+.editor i.icon-edit{
     margin-right: 2px;
 }
 
-.field:hover > .editor{
-    display: block;
+.field:hover > .editor,
+.box-column:hover > .editor,
+.module:hover > .epmBtn{
+    /*display: block;*/
+    filter: alpha(opacity=100);
+    opacity: 1;
 }
 
-#editorPageHeader .control-group {
+.modal .control-group {
     display: flex;
 }
 
-#editorPageHeader label.control-label {
+.modal label.control-label {
     float: left;
     margin-right: 15px;
     margin-top: 5px;
 }
 
-#editorPageHeader .controls {
+.modal .controls {
     float: right;
 }
 
@@ -618,13 +598,13 @@ input#btnId {
     text-align: center;
     border-radius: 5px;
     padding: 0 5px 2px;
+    margin-top: 30px;
     width: auto;
-    margin-right: 10px;
-    list-style:none;
+    list-style: none;
 }
 
 .btn-field button{
-    width: 150px;
+    width: 50%;
 }
 
 .btn-field .remove {
@@ -640,7 +620,7 @@ input#btnId {
     margin-right: 40px;
 }
 
-.btn-field .preview {
+.btn-field .view {
     margin-top: 22px;
     margin-bottom: 5px;
 }
@@ -660,7 +640,7 @@ input#btnId {
 input#btnCol {
     width: auto;
     height: 22px;
-    padding: 2px 0;
+    padding: 2px 0 0 6px;
     margin: 0;
     line-height: 20px;
 }
@@ -675,6 +655,7 @@ input#btnCol {
     -moz-border-radius: 5px;
     text-align: center;
     line-height: 24px;
+    cursor: pointer;
 }
 
 .col-l{
@@ -687,4 +668,25 @@ input#btnCol {
 .btnCol .btn-icon {
     top: 1px;
     left: 2px;
+}
+
+.box-column .editor{
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.ml-10{
+    margin-left: 10px;
+}
+.ml-20{
+    margin-left: 20px;
+}
+
+#download-layout {
+    display: none;
+}
+span.epmBtn {
+    margin-right: 20px;
+    margin-top: -3px;
+    position: relative;
 }
