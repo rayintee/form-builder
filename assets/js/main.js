@@ -8,9 +8,18 @@ var startdrag = 0;
 //清除容器
 function clearDemo() {
     $(".right-content").empty();
-    /*layouthistory = null;
-     if (supportstorage())
-     localStorage.removeItem("layoutdata");*/
+}
+
+//动态切换编辑/预览模式
+function editorModel(val){
+    var $bc = $('.bulider-container'), $dl = $('#download-layout');
+    if(val) {// 编辑模式
+        $bc.removeClass('model-hide').addClass('model-show');
+        $dl.removeClass('model-show').addClass('model-hide');
+    } else {
+        $bc.removeClass('model-show').addClass('model-hide');
+        $dl.removeClass('model-hide').addClass('model-show');
+    }
 }
 
 //删除元素
@@ -20,10 +29,10 @@ function removeElm() {
         var _isFooterBtn = $(this).parent().hasClass('box-column');
         $(this).parent().remove();
         if(_isFooterBtn) {//按钮删除
-            var _num = $('#btn-field').children().length;
+            var _num = $('.field-column').children().length;
             if(_num > 0) {
-                var percent = (100 / _num).toFixed(2) + '%';
-                $('#btn-field').children().attr('style', 'width:' + percent);
+                var percent = (95 / _num).toFixed(2) + '%';
+                $('.field-column').children().attr('style', 'width:' + percent + ';');
             }
         }
         if (!$(".right-content .module").length > 0) {
@@ -96,9 +105,14 @@ function parserHtml(){
         var $fm = $('<div class="fp-module">'), $legend = $('<div class="fp-module-title">').html($('legend', $(this)).html());
         $fm.append($legend);//添加到fp-module里面
         $(this).find('.field').each(function(){//循环遍历
-            var $fr = $('<div class="fp-row">');//构造行
-            $('.box-column', $(this)).each(function(){
-                var $fc = $('<div class="fp-column" style="'+ $(this).attr('style') +'">');//构造列
+            var $fr = $('<div class="fp-row">'), _column_length = $('.box-column', $(this)).length;//构造行
+            $('.box-column', $(this)).each(function(_i, _v){
+                var _p = $(this).attr('style');
+                if(_i == _column_length -1 && _p.indexOf('100') == -1) {
+                    var _t = _p.split(':')[1];
+                    _p = 'width: ' + (parseFloat(_t.split('%')[0]) + 0.50) + '%;';
+                }
+                var $fc = $('<div class="fp-column" style="'+ _p +'">');//构造列
                 $(this).find('.box-group').each(function(){
                     var $fg = $('<div class="fp-group">').append($(this).children());
                     $fc.append($fg);
@@ -215,16 +229,18 @@ $(function () {//js程序入口函数
             alert("手工输入的比例不能为空");
             return false;
         }
-        var tmp = col.split(',');//临时数组
+        var tmp = col.split(','),//临时数组
+        tar = parseFloat(tmp[tmp.length-1].split('%')[0]) - 0.5;
+        tmp[tmp.length - 1] = tar >= 0?tar + '%': '0.00%';
         var _view = '';
         for (var i = 0; i < tmp.length; i++) {
             percent = tmp[i];
-            tpl = '<div class="box-column" style="width: ' + percent + '"></div>';
+            tpl = '<div class="box-column" style="width: ' + percent + ';"></div>';
             _view += tpl;
         }
         $('#manuColModel').html('').html(_view);//写入列模式
         $('#manuInput').val('').val(col);//定义列百分比
-        $('.left-content .manuColModel').css('display', 'flex');
+        $('.left-content .manuColModel').css('display', 'block');
     });
 
     //修改页面标题
@@ -282,6 +298,8 @@ $(function () {//js程序入口函数
     // 只清空body和底部
     $('#clear').on('click', function () {
         $(".right-content, .footer-content").empty();
+        $('#download-layout').children().empty();
+        clearEditorPageNavBtnModal();
     });
 
     //底部按钮数目控制
@@ -302,16 +320,16 @@ $(function () {//js程序入口函数
     //添加按钮
     $('#addBtn').on('click', function(e){
         e.stopImmediatePropagation();
-        var _val = parseInt($('#btnCol').val()) + $('#btn-field').children().length;
-        var percent = (100 / _val).toFixed(2) + '%';
-        if($('#btn-field').children().length > 0) $('#btn-field').children().attr('style', 'width:' + percent);
-        var $btnCol = '<div class="box-column ui-sortable" style="width:'+ percent + '">' +
+        var _val = parseInt($('#btnCol').val()) + $('.field-column').children().length;
+        var percent = (95 / _val).toFixed(2) + '%';
+        if($('.field-column').children().length > 0) $('.field-column').children().attr('style', 'width:' + percent);
+        var $btnCol = '<div class="box-column ui-sortable" style="width:'+ percent + ';">' +
         '<a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a>' +
         '<span class="editor label" data-target="#editorPageNavBtn" role="button" data-toggle="modal">' +
         '<i class="icon-edit"></i>编辑</span><div class="btn-field ui-draggable"><div class="view">' +
         '<button type="button">button按钮</button></div></div></div>';
         for(var i=0; i< parseInt($('#btnCol').val()); i++){
-            $('#btn-field').append($btnCol);//添加到末尾
+            $('.field-column').append($btnCol);//添加到末尾
         }
         return false;
     });
@@ -366,4 +384,16 @@ $(function () {//js程序入口函数
         parserHtml();//解析模块
         //console.log(JSON.stringify(origin_data));
     });
+
+    //预览模式
+    $('#sourcepreview').on('click', function(){
+        parserHtml();//解析模块
+        editorModel(false);
+        return false;
+    });
+    //编辑模式
+    $('#devpreview').on('click', function(){
+        editorModel(true);
+        return false;
+    })
 });

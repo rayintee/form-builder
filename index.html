@@ -10,8 +10,8 @@
     <title>可视化表单设计器</title>
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
+   <!-- <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">-->
+    <link href="assets/css/formDesinger.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -19,16 +19,13 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="shortcut icon" href="assets/img/favicon.png">
+   <!-- <link rel="shortcut icon" href="assets/img/favicon.png">-->
 
     <script type="text/javascript" src="assets/js/jquery-2.0.0.min.js"></script>
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="assets/js/jquery-1.9.1.min.js"></script>
-    <![endif]-->
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery-ui.js"></script>
 
-    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/formDesinger.js"></script>
 </head>
 <body>
 <!--头部导航栏-->
@@ -40,33 +37,18 @@
                 <ul class="nav" id="menu-layoutit">
                     <li class="divider-vertical"></li>
                     <li>
-                        <div class="btn-group" data-toggle="buttons-radio">
-                            <button type="button" class="btn btn-primary" id="devpreview">
-                                <i class="icon-eye-close icon-white"></i>布局编辑
-                            </button>
-                            <button type="button" class="btn btn-primary" id="sourcepreview">
-                                <i class="icon-eye-open icon-white"></i>预览
-                            </button>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" id="devpreview"><i class="icon-eye-close icon-white"></i>布局编辑</button>
+                            <button type="button" class="btn btn-primary" id="sourcepreview"><i class="icon-eye-open icon-white"></i>预览</button>
                         </div>
                         <div class="btn-group">
-                            <button class="btn btn-primary" id="savePage"><!--href="/share/index" role="button"
-                                    data-toggle="modal" data-target="#shareModal"-->
-                                <i class="icon-share icon-white"></i>保存
-                            </button>
-                            <button class="btn btn-primary" href="#clear" id="clear">
-                                <i class="icon-trash icon-white"></i>清空
-                            </button>
+                            <button class="btn btn-primary" id="savePage"><i class="icon-share icon-white"></i>保存</button>
+                            <button class="btn btn-primary" id="clear"><i class="icon-trash icon-white"></i>清空</button>
                         </div>
                         <div class="btn-group">
-                            <button class="btn btn-primary" type="button" id="taLeft">
-                                <i class="icon-align-left icon-white"></i>靠左
-                            </button>
-                            <button class="btn btn-primary" type="button" id="taCenter">
-                                <i class="icon-align-center icon-white"></i>居中
-                            </button>
-                            <button class="btn btn-primary" type="button" id="taRight">
-                                <i class="icon-align-right icon-white"></i>靠右
-                            </button>
+                            <button class="btn btn-primary" type="button" id="taLeft"><i class="icon-align-left icon-white"></i>靠左</button>
+                            <button class="btn btn-primary" type="button" id="taCenter"><i class="icon-align-center icon-white"></i>居中</button>
+                            <button class="btn btn-primary" type="button" id="taRight"><i class="icon-align-right icon-white"></i>靠右</button>
                         </div>
                     </li>
                 </ul>
@@ -75,205 +57,140 @@
     </div>
 </div>
 
-<!--容器主体-->
-<div class="bulider-container h1">
-<div class="builder-left bd h1">
-    <div class="left-content">
-        <ul class="nav nav-tabs" id="componentTab">
-            <li class="active">
-                <a href="#layout" data-toggle="tab">布局属性</a>
-            </li>
-            <li>
-                <a href="#component" data-toggle="tab">表单组件</a>
-            </li>
-        </ul>
-        <div class="tab-content active">
-            <div class="tab-pane active" id="layout">
-                <div class="groups">
-                    <div class="groups-header"><i class="icon icon-plus"></i>头部布局</div>
-                    <div class="groups-body">
-                        <div class="group-row">
-                            <label>显示页标题</label>
-                            <input id="showHeader" type="checkbox" checked="checked"/>
+<!--容器部分-->
+<div class="container-fluid" id="editorArea">
+    <div class="row-fluid">
+        <!--左侧导航栏-->
+        <div class="side-bar">
+            <ul class="nav nav-tabs" id="componentTab">
+                <li class="active"><a href="#layout" data-toggle="tab">布局属性</a></li>
+                <li><a href="#component" data-toggle="tab">表单组件</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="layout">
+                    <!--头部布局-->
+                    <div class="groups">
+                        <div class="groups-header"><i class="icon icon-plus"></i>头部布局</div>
+                        <div class="groups-body">
+                            <div class="group">
+                                <div class="group-row">
+                                    <label>显示页标题</label>
+                                    <input id="showHeader" type="checkbox" checked="checked"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="groups">
-                    <div class="groups-header"><i class="icon icon-plus"></i>内容布局</div>
-                    <div class="groups-body">
-                        <!--表单模块-->
-                        <div class="group">
-                            <h5>表单块</h5>
-                            <hr>
-                            <div class="module ui-draggable">
-                                <a href="#close" class="remove label label-important">
-                                    <i class="icon-remove icon-white"></i>删除
-                                </a>
-                                <span class="drag label"><i class="icon-move"></i>拖动</span>
-                                <span class="editor label epmBtn" data-target="#editorPageModule" role="button"
-                                      data-toggle="modal"><i class="icon-edit"></i>编辑</span>
-                                <div class="preview">
-                                    表单模块
-                                </div>
-                                <div class="view">
-                                    <fieldset>
-                                        <legend>块标题</legend>
-                                        <div class="fieldset-content ui-sortable">
+                    <!--内容布局-->
+                    <div class="groups opened">
+                        <div class="groups-header"><i class="icon icon-minus"></i>内容布局</div>
+                        <div class="groups-body">
+                            <div class="group">
+                                <h5>表单块</h5>
+                                <hr>
+                                <div class="fp-module bs-1 bg-2 ui-draggable">
+                                    <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a>
+                                    <span class="drag label"><i class="icon-move"></i>拖动</span>
+                                    <span class="editor label" data-target="#editorPageModule" role="button" data-toggle="modal"><i class="icon-edit"></i>编辑</span>
+                                    <div class="preview">表单模块</div>
+                                    <div class="view">
+                                        <div class="row-fluid mg-1">
+                                            <div class="fp-module-title">块标题</div>
+                                            <div class="fp-module-content ui-sortable">
+                                            </div>
                                         </div>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- / 表单模块-->
-                        <!--列模块-->
-                        <div class="group">
-                            <h5>列模式</h5>
-                            <hr>
-                            <div class="field ui-draggable">
-                                <a href="#close" class="remove label label-important">
-                                    <i class="icon-remove icon-white"></i>删除
-                                </a>
-                                <span class="drag label"><i class="icon-move"></i>拖动</span>
-
-                                <div class="preview">
-                                    <input value="100%" type="text" readonly>
-                                </div>
-                                <div class="view">
-                                    <div class="field-box">
-                                        <div class="box-column" style="width: 100%;"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="field ui-draggable">
-                                <a href="#close" class="remove label label-important">
-                                    <i class="icon-remove icon-white"></i>删除
-                                </a>
-                                <span class="drag label"><i class="icon-move"></i>拖动</span>
-
-                                <div class="preview">
-                                    <input value="50%,50%" type="text" readonly>
-                                </div>
-
-                                <div class="view">
-                                    <div class="field-box">
-                                        <div class="box-column" style="width: 50%;"></div>
-                                        <div class="box-column" style="width: 50%;"></div>
+                            <div class="group">
+                                <h5>表单行列</h5>
+                                <hr>
+                                <div class="fp-row bs-1 bg-1 ui-draggable">
+                                    <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a>
+                                    <span class="drag label"><i class="icon-move"></i>拖动</span>
+                                    <div class="preview"><input value="100%" class="ipt-label" type="text" readonly></div>
+                                    <div class="view">
+                                        <div class="row-fluid clearfix mg-2">
+                                            <div class="fp-column bs-1 bg-2 ui-sortable" style="width: 100%;">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="field ui-draggable">
-                                <a href="#close" class="remove label label-important">
-                                    <i class="icon-remove icon-white"></i>删除
-                                </a>
-                                <span class="drag label"><i class="icon-move"></i>拖动</span>
-
-                                <div class="preview">
-                                    <input value="40%,60%" type="text" readonly>
-                                </div>
-
-                                <div class="view">
-                                    <div class="field-box">
-                                        <div class="box-column" style="width: 40%;"></div>
-                                        <div class="box-column" style="width: 60%;"></div>
+                                <div class="fp-row bs-1 bg-1 ui-draggable">
+                                    <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a>
+                                    <span class="drag label"><i class="icon-move"></i>拖动</span>
+                                    <div class="preview"><input value="50%,50%" class="ipt-label" type="text" readonly></div>
+                                    <div class="view">
+                                        <div class="row-fluid clearfix mg-2 rs-1">
+                                            <div class="fp-column bs-1 bg-2 ui-sortable" style="width: 48.5%;">
+                                            </div>
+                                            <div class="fp-column bs-1 bg-2 ui-sortable" style="width: 48.5%;">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="field ui-draggable">
-                                <a href="#close" class="remove label label-important">
-                                    <i class="icon-remove icon-white"></i>删除
-                                </a>
-                                <span class="drag label"><i class="icon-move"></i>拖动</span>
-
-                                <div class="preview">
-                                    <input value="33.33%,33.33%,33.33%" type="text" readonly>
+                                <div class="fp-row bs-1 bg-1 ui-draggable">
+                                    <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a>
+                                    <span class="drag label"><i class="icon-move"></i>拖动</span>
+                                    <div class="preview"><input value="40%,60%" class="ipt-label" type="text" readonly></div>
+                                    <div class="view">
+                                        <div class="row-fluid clearfix mg-2 rs-1">
+                                            <div class="fp-column bs-1 bg-2 ui-sortable" style="width: 39.0%;">
+                                            </div>
+                                            <div class="fp-column bs-1 bg-2 ui-sortable" style="width: 58.0%;">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="view">
-                                    <div class="field-box">
-                                        <div class="box-column" style="width: 33.33%;"></div>
-                                        <div class="box-column" style="width: 33.33%;"></div>
-                                        <div class="box-column" style="width: 33.33%;"></div>
+                                <div class="fp-row bs-1 bg-1 ui-draggable">
+                                    <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a>
+                                    <span class="drag label"><i class="icon-move"></i>拖动</span>
+                                    <div class="preview"><input value="33%,33%,33%" class="ipt-label" type="text" readonly></div>
+                                    <div class="view">
+                                        <div class="row-fluid clearfix mg-2 rs-1">
+                                            <div class="fp-column bs-1 bg-2 ui-sortable" style="width: 31.5%;">
+                                            </div>
+                                            <div class="fp-column bs-1 bg-2 ui-sortable" style="width: 31.5%;">
+                                            </div>
+                                            <div class="fp-column bs-1 bg-2 ui-sortable" style="width: 31.5%;">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- / 列模块-->
-                        <!-- 手动列模式 -->
-                        <div class="group">
-                            <h5>手动列模式</h5>
-                            <hr>
-                            <div class="field ui-draggable manuColModel">
-                                <a href="#close" class="remove label label-important">
-                                    <i class="icon-remove icon-white"></i>删除
-                                </a>
-                                <span class="drag label"><i class="icon-move"></i>拖动</span>
-
-                                <div class="preview">
-                                    <input id="manuInput" type="text" readonly>
-                                </div>
-
-                                <div class="view">
-                                    <div class="field-box" id="manuColModel">
-                                        <!--动态的插入列模式-->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="input-append">
-                                <input class="inpt" id="colPer" placeholder="输入列比例，用逗号分隔..." type="text">
-                                <button class="btn btn-info" type="button" id="manuColModelBtn">应用</button>
-                            </div>
-                        </div>
-                        <!-- / 手动列模式 -->
                     </div>
-                </div>
-
-                <div class="groups">
-                    <div class="groups-header"><i class="icon icon-plus"></i>底部布局</div>
-                    <div class="groups-body">
-                        <!--底部布局-->
-                        <div class="group">
-                            <h5>底部按钮数目</h5>
-                            <hr>
-                            <div class="group-r">
-                                <span class="btnCol col-l"><i class="btn-icon btn-icon-minus"></i></span>
-                                <input type="text" readonly id="btnCol" value="2">
-                                <span class="btnCol col-r"><i class="btn-icon btn-icon-plus"></i></span>
-                            </div>
-                            <div class="group-r ta-c">
-                                <button type="button" class="btn addBtn" id="addBtn">
-                                    <span class="btnName">
-                                        <i class="btn-icon btn-icon-plus"></i>
-                                        确 定
-                                    </span>
-                                </button>
+                    <!--底部布局-->
+                    <div class="groups">
+                        <div class="groups-header"><i class="icon icon-plus"></i>底部布局</div>
+                        <div class="groups-body">
+                            <div class="group">
+                                <div class="group-row">
+                                    <label>显示底部导航按钮</label>
+                                    <input id="showFooter" type="checkbox" checked="checked"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane" id="component">
-                <div class="groups">
-                    <div class="groups-header"><i class="icon icon-plus"></i>字段列表</div>
-                    <div class="groups-body">
-                        <div class="group">
-                            <h5>组件列表</h5>
-                            <hr>
-                            <!--component list-->
-                            <div class="box ui-draggable">
-                                <a href="#close" class="remove label label-important">
-                                    <i class="icon-remove icon-white"></i>删除
-                                </a>
-                                <span class="drag label"><i class="icon-move"></i>拖动</span>
-                                <div class="preview">
-                                    Text Input 文本输入框
-                                </div>
-                                <div class="view">
-                                    <div class="box-group">
-                                        <label class="group-label" for="textinput-0">Text Input</label>
-                                        <div class="group-control">
-                                            <input id="textinput-0" name="textinput-0" type="text" placeholder="placeholder"
-                                                   class="input-xlarge">
+                <div class="tab-pane" id="component">
+                    <div class="groups">
+                        <div class="groups-header"><i class="icon icon-plus"></i>表单字段</div>
+                        <div class="groups-body">
+                            <div class="group">
+                                <h5>表单字段</h5>
+                                <hr>
+                                <div class="fp-row ui-draggable">
+                                    <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a>
+                                    <span class="drag label"><i class="icon-move"></i>拖动</span>
+                                    <div class="preview">Text Input 文本输入框</div>
+                                    <div class="view">
+                                        <div class="row-fluid clearfix mg-2 rs-1">
+                                            <div class="component-group">
+                                                <label class="group-label" for="#">Text Input</label>
+                                                <div class="group-control">
+                                                    <input id="#" name="textinput-0" type="text" placeholder="placeholder" class="input-xlarge">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -283,38 +200,26 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- 右侧核心区域 -->
-<div class="builder-right h1">
-    <div class="builder-header bd h2">
-        <!-- header 页标题 -->
-        <div class="header-content">
-            <div class="field">
-                <span class="editor label" data-target="#editorPageHeader" role="button"
-                      data-toggle="modal" id="ephBtn"><i class="icon-edit"></i>编辑</span>
-                <div class="title" id="header-title">页标题</div>
+        <!--右侧拖拽编辑区-->
+        <div class="form-page">
+            <div class="container-fluid header-content mh-1 bs-1 bg-1">
+                <div class="fp-header bs-1 bg-2">
+                    <span class="editor label" data-target="#editorPageHeader" role="button" data-toggle="modal" id="ephBtn"><i class="icon-edit"></i>编辑</span>
+                    <div class="fp-title" id="header-title">页标题</div>
+                </div>
+            </div>
+            <div class="container-fluid body-content mh-2 bs-1 bg-1" id="bodyContent"></div>
+            <div class="container-fluid footer-content fp-footer mh-1 bs-1 bg-1" id="footerContent">
+                <span class="add label"><i class="icon-plus"></i>添加按钮</span>
+                <div class="fp-footer bs-1 mh-1 ps-1 hideEle">
+                </div>
             </div>
         </div>
     </div>
-    <div class="builder-body bd h3">
-        <!-- module 模块内容 -->
-        <div class="right-content ui-sortable" id="pageBody">
-        </div>
-    </div>
-    <div class="builder-footer bd h2">
-        <div class="footer-content" id="pageFooter">
-            <!-- footer 底部按钮-->
-            <div class="field-box" id="btn-field">
-            </div>
-        </div>
-    </div>
-</div>
-<!-- / 右侧核心区域-->
 </div>
 
-<!--代码展示-->
-<div id="download-layout">
+<!--代码保存区-->
+<div id="viewArea" class="hideEle">
     <div class="container-fluid"></div>
 </div>
 
@@ -334,7 +239,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a id="savecontent" class="btn btn-primary">确定</a>
+        <a id="saveHTitle" class="btn btn-primary">确定</a>
         <a class="btn" data-dismiss="modal">关闭</a>
     </div>
 </div>
@@ -355,21 +260,54 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a id="saveMT" class="btn btn-primary">确定</a>
+        <a id="saveMTitle" class="btn btn-primary">确定</a>
         <a class="btn close-mt">关闭</a>
+    </div>
+</div>
+
+<!--添加底部按钮modal-->
+<div class="modal hide fade" data-backdrop="static" role="dialog" id="addFooterBtns">
+    <div class="modal-header">
+        <a class="close close-add-btn">×</a>
+        <h3>添加底部导航按钮</h3>
+    </div>
+    <div class="modal-body">
+        <div class="control-group">
+            <label class="control-label">按钮位置</label>
+            <div class="controls">
+                <input type="radio" name="btnPosition" value="0">当前按钮前面
+                <input type="radio" name="btnPosition" value="1" checked="checked">当前按钮后面
+                <p class="help-block">根据需要添加按钮到相应的位置</p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">按钮数目</label>
+            <div class="controls">
+                <div class="btn-ctrl">
+                    <span class="btn-label"><i class="btn-icon btn-icon-minus"></i></span>
+                    <input type="text" readonly id="btnCol" value="1">
+                    <span class="btn-label"><i class="btn-icon btn-icon-plus"></i></span>
+                </div>
+                <p class="help-block">根据需要添加按钮到相应的位置</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a id="addBtn" class="btn btn-primary">确定</a>
+        <a class="btn close-add-btn">关闭</a>
     </div>
 </div>
 
 <!--页面导航按钮属性修改modal-->
 <div class="modal hide fade" data-backdrop="static" role="dialog" id="editorPageNavBtn">
     <div class="modal-header">
-        <a class="close btn-close">×</a>
+        <a class="close close-btn">×</a>
         <h3>编辑按钮属性</h3>
     </div>
     <div class="modal-body">
         <div class="control-group">
             <label class="control-label" for="btnId">按钮ID</label>
-            <div class="controls ml-20">
+            <div class="controls">
                 <input placeholder="输入按钮id..." type="text" class="input-xlarge" id="btnId">
                 <p class="help-block">根据js中定义的button id修改</p>
             </div>
@@ -390,7 +328,7 @@
         </div>
         <div class="control-group">
             <label class="control-label" for="btnName">按钮Text</label>
-            <div class="controls ml-10">
+            <div class="controls">
                 <input placeholder="输入按钮名称..." type="text" class="input-xlarge" id="btnText">
                 <p class="help-block">根据需要命名button text</p>
             </div>
@@ -398,7 +336,7 @@
     </div>
     <div class="modal-footer">
         <a id="saveBtnProperties" class="btn btn-primary">确定</a>
-        <a class="btn btn-close">关闭</a>
+        <a class="btn close-btn">关闭</a>
     </div>
 </div>
 </body>

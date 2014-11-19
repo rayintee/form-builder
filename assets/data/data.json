@@ -3,32 +3,87 @@
     "stauts": "1",
     "List": [
         {
-            "ID": "1",
-            "formID": "1",
-            "pageID": "1",
-            "groupID": "1",
-            "elementType": "input[type='text']",
-            "elementLabel": "输入框",
-            "elementCode": "input1",
-            "elementName": "input1"
+            "label": "文本框",
+            "component":"input",
+            "type": "text",
+            "id": "text",
+            "name": "text",
+            "class": ""
         },{
-            "ID": "2",
-            "formID": "1",
-            "pageID": "1",
-            "groupID": "1",
-            "elementType": "input[type='text']",
-            "elementLabel": "输入框",
-            "elementCode": "input2",
-            "elementName": "input2"
+            "label": "密码框",
+            "component":"input",
+            "type": "password",
+            "id": "password",
+            "name": "password",
+            "class": ""
         },{
-            "ID": "3",
-            "formID": "1",
-            "pageID": "1",
-            "groupID": "1",
-            "elementType": "select",
-            "elementLabel": "输入框",
-            "elementCode": "input1",
-            "elementName": "input1"
+            "label": "按钮",
+            "component":"input",
+            "type": "button",
+            "id": "button",
+            "name": "button",
+            "class": ""
+        },{
+            "label": "按钮重置",
+            "component":"input",
+            "type": "reset",
+            "id": "reset",
+            "name": "reset",
+            "class": ""
+        },{
+            "label": "隐藏域",
+            "component":"input",
+            "type": "hidden",
+            "id": "hidden",
+            "name": "hidden",
+            "class": ""
+        },{
+            "label": "密码框",
+            "component":"input",
+            "type": "password",
+            "id": "password",
+            "name": "password",
+            "class": ""
+        },{
+            "label": "单选框",
+            "component":"input",
+            "type": "radio",
+            "id": "radio",
+            "name": "radio",
+            "class": ""
+        },{
+            "label": "复选框",
+            "component":"input",
+            "type": "checkbox",
+            "id": "checkbox",
+            "name": "checkbox",
+            "class": ""
+        },{
+            "label": "下拉框",
+            "component":"select",
+            "type": "none",
+            "id": "select",
+            "name": "select",
+            "class": "",
+            "options": [
+                {"value": "1", "text": "1"},
+                {"value": "2", "text": "2"}
+            ]
+        },{
+            "label": "文本域",
+            "component":"textarea",
+            "type": "none",
+            "id": "textarea",
+            "name": "textarea",
+            "class": ""
+        },{
+            "label":"none",
+            "component": "img",
+            "type": "none",
+            "id": "img",
+            "name": "img",
+            "src": "",
+            "class": ""
         }
     ]
 }
