@@ -50,14 +50,22 @@
             "type": "radio",
             "id": "radio",
             "name": "radio",
-            "class": ""
+            "class": "",
+            "option": [
+                {"value": "1", "text":"1"},
+                {"value": "2", "text":"2"}
+            ]
         },{
             "label": "复选框",
             "component":"input",
             "type": "checkbox",
             "id": "checkbox",
             "name": "checkbox",
-            "class": ""
+            "class": "",
+            "option": [
+                {"value": "1", "text":"1"},
+                {"value": "2", "text":"2"}
+            ]
         },{
             "label": "下拉框",
             "component":"select",

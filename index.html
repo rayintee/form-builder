@@ -24,10 +24,9 @@
     <script type="text/javascript" src="assets/js/jquery-2.0.0.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery-ui.js"></script>
-
     <script type="text/javascript" src="assets/js/formDesinger.js"></script>
 </head>
-<body>
+<body class="hideEle">
 <!--头部导航栏-->
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
@@ -175,26 +174,8 @@
                 <div class="tab-pane" id="component">
                     <div class="groups">
                         <div class="groups-header"><i class="icon icon-plus"></i>表单字段</div>
-                        <div class="groups-body">
-                            <div class="group">
-                                <h5>表单字段</h5>
-                                <hr>
-                                <div class="fp-row ui-draggable">
-                                    <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a>
-                                    <span class="drag label"><i class="icon-move"></i>拖动</span>
-                                    <div class="preview">Text Input 文本输入框</div>
-                                    <div class="view">
-                                        <div class="row-fluid clearfix mg-2 rs-1">
-                                            <div class="component-group">
-                                                <label class="group-label" for="#">Text Input</label>
-                                                <div class="group-control">
-                                                    <input id="#" name="textinput-0" type="text" placeholder="placeholder" class="input-xlarge">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="groups-body" id="componentBody">
+
                         </div>
                     </div>
                 </div>

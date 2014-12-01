@@ -437,6 +437,7 @@ label.control-label {
 .form-page .preview{display: none;}
 .form-page .view{display: block;}
 .form-page input, .form-page select, .form-page textarea {width: 75%;}
+.form-page input[type="radio"], .form-page input[type="checkbox"]{width: 28px;}
 .fp-header:hover > .editor,
 .body-content .fp-module:hover > .remove,
 .body-content .fp-module:hover > .drag,
@@ -511,6 +512,41 @@ label.control-label {
     float: left;
 }
 
+.loading{
+    z-index: 1050;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.loading-task{
+    background: #111111;
+    opacity: 0.5;
+    filter: Alpha(opacity=50);
+    position: relative;
+    margin: 240px auto 0;
+    width: 115px;
+    height: 20px;
+    padding: 10px 10px 15px 30px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+.loading-icon{
+    background: url("../img/ajax-loader.gif") no-repeat;
+    background-size: 100% 100%;
+    width: 26px;
+    height: 26px;
+    float: left;
+}
+.loading-msg {
+    color: #FFA134;
+    margin-left: 8px;
+    line-height: 26px;
+    height: 26px;
+}
 /*隐藏滚动条*/
 /*
 ::-webkit-scrollbar {

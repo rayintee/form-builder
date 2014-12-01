@@ -1,0 +1,56 @@
+[
+  {
+    "id": "memo",
+    "component": "textarea",
+    "name": null,
+    "class": "",
+    "label": "备注",
+    "type": "none",
+    "options": null
+  },
+  {
+    "id": "enable",
+    "component": "select",
+    "name": null,
+    "class": "",
+    "label": "是否启用",
+    "type": "none",
+    "options": "[{\"value\": \"1\", \"text\":\"一\"},{\"value\": \"2\", \"text\":\"二\"}]"
+  },
+  {
+    "id": "test",
+    "component": "input",
+    "name": "checkbox",
+    "class": "",
+    "label": "测试1",
+    "type": "checkbox",
+    "options": "[{\"value\": \"3\", \"text\":\"三\"},{\"value\": \"4\", \"text\":\"四\"}]"
+  },
+  {
+    "id": "test2",
+    "component": "input",
+    "name": "radio",
+    "class": "",
+    "label": "测试2",
+    "type": "radio",
+    "options": "[{\"value\": \"3\", \"text\":\"三\"},{\"value\": \"4\", \"text\":\"四\"}]"
+  },
+  {
+    "id": "way",
+    "component": "input",
+    "name": null,
+    "class": "",
+    "label": "请求方式",
+    "type": "text",
+    "options": null
+  },
+  {
+    "id": "delflag",
+    "component": "input",
+    "name": null,
+    "class": "",
+    "label": "删除标识位",
+    "type": "text",
+    "options": null
+  }
+]
